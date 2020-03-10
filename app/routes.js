@@ -8,6 +8,7 @@ import c from './pages';
 
 const routes =
   <Route>
+      {/*change to reroute*/}
     <Redirect from='/' to='/dashboard' />
     <Route path='users'>
       <Route path='sign_in' component={c.Sessions.New} />

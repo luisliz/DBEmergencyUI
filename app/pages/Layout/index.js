@@ -13,7 +13,7 @@ import styles from './index.sass';
 @inject('user', 'settings') @observer
 class Application extends React.Component {
   componentDidMount() {
-    this.props.user.signIn();
+    //this.props.user.signIn();
   }
 
   setModal = (node) => {
@@ -27,7 +27,6 @@ class Application extends React.Component {
     if (user.signedIn) {
       return (<Member />);
     }
-
     return (<Guest />);
   }
 
@@ -36,7 +35,7 @@ class Application extends React.Component {
       <div id='Layout' className={styles.layout}>
         <div className={classNames('pure-menu', 'pure-menu-horizontal', 'pure-g', styles.mainNav)}>
           <div className='pure-u-2-24'>
-            <Link to='/' className={classNames('pure-menu-heading', styles.heading)}>Invoiced</Link>
+            <Link to='/' className={classNames('pure-menu-heading', styles.heading)}>EmergencySystem</Link>
           </div>
           <div className='pure-u-18-24'>
             <Navigation />
