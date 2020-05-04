@@ -1,0 +1,35 @@
+<span *ngIf="cat">
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <a mat-button *ngFor="let cat of categories" [routerLink]="cat.link">
+          <mat-toolbar-row>{{cat.name}}</mat-toolbar-row>
+      </a>
+    </mat-drawer>
+    <mat-drawer-content>
+      <mat-toolbar>
+        {{catname[cat]}}
+      </mat-toolbar>
+      <table mat-table [dataSource]="data">
+        <ng-container [matColumnDef]="column" *ngFor="let column of keys">
+          <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="keys"></tr>
+        <tr mat-row *matRowDef="let row; columns: keys" (click)="addToCart(row);"></tr>
+      </table>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</span>
+<div *ngIf="!cat" class="card-deck-container" background-color-primary>
+  <mat-grid-list cols="5" rowHeight="200px" gutterSize="20px">
+    <mat-grid-tile colspan="1" rowspan="1" *ngFor="let cat of categories">
+      <mat-card class='card-item' [routerLink]="cat.link">
+        <mat-card-content fxLayoutAlign="center center">
+          {{cat.name}}
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
