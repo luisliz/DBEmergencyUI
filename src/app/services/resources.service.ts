@@ -9,6 +9,6 @@ export class ResourcesService {
   constructor(private http: HttpClient) { }
 
   getResource(resource) {
-    return this.http.get(this.url+'resources/browse/category/'+resource);
+    return this.http.get(this.url+'resources/'+resource);
   }
 }
